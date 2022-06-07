@@ -20,7 +20,31 @@ export default function HomePage(){
                 </div>
             </nav>
 
-            
+            {/* Body 1 */}
+
+            <div className="h-[85%] flex">
+
+                {/* Sidebar */}
+
+                <div className="bg-white w-0 lg:w-1/4">
+                    <div className="bg-white text-left m-5">
+                        <div className="flex space-x-2 items-center active:text-teal-500 hover:text-teal-500 cursor-pointer">
+                            <FaHome />
+                            <h1>Beranda</h1>
+                        </div>
+                        <div className="flex space-x-2 items-center active:text-teal-500 hover:text-teal-500 cursor-pointer">
+                            <FaUsers />
+                            <h1>Personnel List</h1>
+                        </div>
+                        <div className="flex space-x-2 items-center active:text-teal-500 hover:text-teal-500 cursor-pointer">
+                            <FaRegCalendarAlt/>
+                            <h1>Daily Attendance</h1>
+                        </div>
+                    </div>
+                </div>
+
+                
+            </div>
         </div>
     )
 }
