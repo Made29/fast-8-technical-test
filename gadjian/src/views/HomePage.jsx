@@ -43,7 +43,26 @@ export default function HomePage(){
                     </div>
                 </div>
 
-                
+                {/* Body 2 */}
+
+                <div className="bg-gray-200 w-full p-5 h-full">
+
+                        {/* Headers */}
+
+                        <div className="bg-white flex flex-col lg:flex-row justify-between rounded-md p-2 mb-1 text-left">
+                            <div className="lg:text-left">
+                                <h1 className="text-teal-500 text-3xl font-bold">PERSONNEL LIST</h1>
+                                <h1 className="text-gray-500 text-xl">List of all personnels</h1>
+                            </div>
+                            <div className="flex flex-col lg:flex-row lg:space-x-3 lg:items-center space-y-1">
+                                <input type="text" className="lg:w-40 h-8 border px-1" placeholder="Find Personnel"/>
+                                <button className="bg-teal-500 lg:w-40 h-8 text-white hover:bg-teal-700">ADD PERSONNEL</button>
+                            </div>
+                        </div>
+
+                        
+
+                    </div>
             </div>
         </div>
     )
