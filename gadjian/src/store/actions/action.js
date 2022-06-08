@@ -8,7 +8,6 @@ export const fetchUsers = (payload) => {
 };
 
 export const fetchAllUser = () => {
-    console.log('masuk')
     return (dispatch) => {
         fetch("https://randomuser.me/api/?results=28")
             .then((response) => {
@@ -17,7 +16,7 @@ export const fetchAllUser = () => {
                 }
                 return response.json();
             })
-            .then((data) => dispatch(fetchUsers(data)))
+            .then((data) => dispatch(fetchUsers(data.results)))
             .catch((error) => {
                 console.log(error);
             });
