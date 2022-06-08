@@ -13,12 +13,13 @@ export default function HomePage() {
     const data = useSelector((state) => state.users);
 
     const [pagination, setPagination] = useState(0);
+    console.log("pagination: ", pagination);
 
     const filterData = data.users.slice(pagination, pagination + 4);
 
     useEffect(() => {
         dispatch(fetchAllUser());
-    }, [dispatch, pagination]);
+    }, [dispatch]);
 
     return (
         <div className="lg:h-screen h-full">
