@@ -3,8 +3,19 @@ import Sidebar from "../components/Sidebar";
 import Header from "../components/Header";
 import Card from "../components/Card";
 import Pagination from "../components/Pegination";
+import { useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux"
+import { fetchAllUser } from "../store/actions/action"
 
 export default function HomePage() {
+    const dispatch = useDispatch()
+
+    const data = useSelector((state) => state.users)
+
+    useEffect(() => {
+        dispatch(fetchAllUser())
+    }, [dispatch])
+
     return (
         <div className="lg:h-screen h-full">
             {/* Navbar */}
@@ -29,7 +40,7 @@ export default function HomePage() {
 
                     {/* Card */}
                     <div className="flex flex-col lg:flex-row gap-3 lg:pt-5">
-                        <Card />
+                            <Card />
                     </div>
 
                     {/* Pagination */}

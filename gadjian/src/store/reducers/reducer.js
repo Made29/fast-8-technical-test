@@ -1,16 +1,19 @@
+import { FETCH_USERS } from "../actions/actinoType";
+
 const initialState = {
-    data: []
-}
+    users: [],
+};
 
 function dataReducer(state = initialState, action) {
     switch (action.type) {
-      case 'counter/incremented':
-        return { value: state.value + 1 }
-      case 'counter/decremented':
-        return { value: state.value - 1 }
-      default:
-        return state
+        case FETCH_USERS:
+            return { 
+              ...state, 
+              users: action.payload 
+            };
+        default:
+            return state;
     }
-  }
+}
 
 export default dataReducer;
