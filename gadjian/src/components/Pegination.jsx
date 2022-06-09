@@ -1,6 +1,6 @@
 import { FaAngleRight, FaAngleLeft } from "react-icons/fa";
 
-export default function Pagination({ page, currentPage }) {
+export default function Pagination({ page, currentPage, data }) {
     return (
         <div className="h-[10%] flex justify-center items-center space-x-10 pt-4">
             <button
@@ -18,10 +18,14 @@ export default function Pagination({ page, currentPage }) {
             </button>
             <button
                 onClick={() =>
-                    page(currentPage === 24 ? currentPage : currentPage + 4)
+                    page(
+                        currentPage === data.length - 4
+                            ? currentPage
+                            : currentPage + 4
+                    )
                 }
                 className={
-                    currentPage === 24
+                    currentPage === data.length - 4
                         ? "flex items-center justify-center cursor-not-allowed"
                         : "flex items-center justify-center hover:text-gray-500"
                 }

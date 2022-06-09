@@ -1,6 +1,18 @@
 import { FaSistrix, FaPlus } from "react-icons/fa";
+import { useState } from "react";
 
-export default function Header() {
+export default function Header({ str }) {
+    const [search, setSearch] = useState("");
+
+    const handleSearch = (e) => {
+        setSearch(e.target.value);
+    };
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        str(search);
+    };
+
     return (
         <div className="bg-white flex flex-col lg:flex-row justify-between rounded-md p-2 mb-1 text-left">
             <div className="lg:text-left">
@@ -16,11 +28,14 @@ export default function Header() {
                     <div className="border-y-2 border-l-2 h-full pl-2">
                         <FaSistrix className="text-teal-700 font-bold text-xl h-full" />
                     </div>
-                    <input
-                        type="text"
-                        className="lg:w-40 w-full h-10 px-1 border-r-2 border-y-2 focus:outline-none"
-                        placeholder="Find Personnels"
-                    />
+                    <form className="w-full" onSubmit={handleSubmit}>
+                        <input
+                            onChange={handleSearch}
+                            type="text"
+                            className="lg:w-40 w-full h-10 px-1 border-r-2 border-y-2 focus:outline-none"
+                            placeholder="Find Personnels"
+                        />
+                    </form>
                 </div>
                 <button className="bg-teal-500 lg:w-40 h-10 text-white hover:bg-teal-700 text-sm">
                     <div className="flex items-center justify-between px-3">

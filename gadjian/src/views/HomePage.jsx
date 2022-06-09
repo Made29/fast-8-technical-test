@@ -10,11 +10,35 @@ import { fetchAllUser } from "../store/actions/action";
 export default function HomePage() {
     const dispatch = useDispatch();
 
+    const [string, setString] = useState("");
+
     const data = useSelector((state) => state.users);
+
+    let searchFilter = data.users.filter(el => {
+        let count = 0
+        for (let i = 0; i < el.name.first.length; i++) {
+            if (el.name.first[i].toLowerCase() === string[i]) {
+                count++
+            }
+        }
+        if (count === string.length) {
+            return true
+        }
+        
+        count = 0
+        for (let i = 0; i < el.name.last.length; i++) {
+            if (el.name.last[i].toLowerCase() === string[i]) {
+                count++
+            }
+        }
+        if (count === string.length) {
+            return true
+        }
+    });
 
     const [pagination, setPagination] = useState(0);
 
-    const filterData = data.users.slice(pagination, pagination + 4);
+    const filterData = searchFilter.slice(pagination, pagination + 4);
 
     useEffect(() => {
         dispatch(fetchAllUser());
@@ -38,7 +62,7 @@ export default function HomePage() {
                 <div className="bg-gray-200 w-full p-5 h-full">
                     {/* Headers */}
 
-                    <Header />
+                    <Header str={setString} />
 
                     {/* Card */}
                     <div className="flex flex-col lg:flex-row gap-3 lg:pt-5">
@@ -49,7 +73,7 @@ export default function HomePage() {
 
                     {/* Pagination */}
 
-                    <Pagination page={setPagination} currentPage={pagination} />
+                    <Pagination page={setPagination} currentPage={pagination} data={data.users}/>
                 </div>
             </div>
         </div>
