@@ -18,7 +18,7 @@ export default function Header() {
                     </div>
                     <input
                         type="text"
-                        className="lg:w-40 h-10 px-1 border-r-2 border-y-2 focus:outline-none"
+                        className="lg:w-40 w-full h-10 px-1 border-r-2 border-y-2 focus:outline-none"
                         placeholder="Find Personnels"
                     />
                 </div>
